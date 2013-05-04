@@ -1,5 +1,4 @@
 
-
 class ValidationError(Exception):
     pass
 
@@ -12,8 +11,10 @@ class Password:
 class Require:
     pass
 
+class Url:
+    pass
 
-class max(length = 15):
+def max(length = 15):
     
     def _max(form, filed):
         if length > len(filed.data):
