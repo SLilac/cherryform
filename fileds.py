@@ -7,11 +7,15 @@ class FiledError(Exception):
 
 class Filed:
     
-    def __init__(self,label, validators , id = None, description = ""):
+    def __init__(self,label, validators , id = None, description = "",
+            name = "", required = True, default = None, from = None, errors ):
         
         self.label = label
         self.validators = validators
         self._data = None
+        self.type = None
+        self.errors = errors if type(errors) is list else [error]
+        
 
     def validation(self):
         pass_ed = True
@@ -19,6 +23,6 @@ class Filed:
             pass_ed = validator(self._data)
             if pass_ed == False:
                 raise FiledError(' %s validator failed : %s' % (self.__class__.__name__, self._data))
-        
+    
         
         
