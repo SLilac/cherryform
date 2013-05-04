@@ -11,18 +11,22 @@ class Filed:
             name = "", required = True, default = None, from = None, errors ):
         
         self.label = label
-        self.validators = validators
-        self._data = None
+        self.validators = validators if type(validators) is list else [validators]
+        self.data = None
         self.type = None
         self.errors = errors if type(errors) is list else [error]
-        
+        self.default = default
 
     def validate(self):
         pass_ed = True
         for validator in validators:
-            pass_ed = validator(self._data)
+            pass_ed = validator(self.data)
             if pass_ed == False:
                 raise FiledError(' %s validator failed : %s' % (self.__class__.__name__, self._data))
+    
+    
+    def __call__(self):
+        return "<input name='%s' id ='%s' type=''> %s</input>"
     
         
         
