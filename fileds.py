@@ -17,7 +17,7 @@ class Filed:
         self.errors = errors if type(errors) is list else [error]
         
 
-    def validation(self):
+    def validate(self):
         pass_ed = True
         for validator in validators:
             pass_ed = validator(self._data)
