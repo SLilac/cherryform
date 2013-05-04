@@ -14,11 +14,11 @@ class Filed:
         self._data = None
 
     def validation(self):
-        pass = True
+        pass_ed = True
         for validator in validators:
-            pass = validator(self._data)
-            if pass == False:
-                rasie raise FiledError(' %s validator failed : %s' % (self.__class__.__name__, self._data))
+            pass_ed = validator(self._data)
+            if pass_ed == False:
+                raise FiledError(' %s validator failed : %s' % (self.__class__.__name__, self._data))
         
         
         
