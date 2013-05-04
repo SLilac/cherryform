@@ -12,5 +12,5 @@ class MetaForm(type):
 
 
 class Form(meataclass = MetaForm)
-    self.__name__ = Form.__class__.name
+    
     def __init__(sefl)
